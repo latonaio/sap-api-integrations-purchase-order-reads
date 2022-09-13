@@ -60,7 +60,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 ここでは、"Header" が指定されています。
 
 ```
-	"api_schema": "sap.s4.beh.purchaseorder.v1.PurchaseOrder.Created.v1",
+	"api_schema": "SAPPurchaseOrderReads",
 	"accepter": ["Header"],
 	"purchase_order": "4500000028",
 	"deleted": false
@@ -71,7 +71,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 全データを取得する場合、sample.json は以下のように記載します。  
 
 ```
-	"api_schema": "sap.s4.beh.purchaseorder.v1.PurchaseOrder.Created.v1",
+	"api_schema": "SAPPurchaseOrderReads",
 	"accepter": ["All"],
 	"purchase_order": "4500000028",
 	"deleted": false
