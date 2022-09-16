@@ -62,7 +62,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 ```
 	"api_schema": "SAPPurchaseOrderReads",
 	"accepter": ["Header"],
-	"purchase_order": "4500000028",
+	"purchase_order": "4500000001",
 	"deleted": false
 ```
   
@@ -73,7 +73,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 ```
 	"api_schema": "SAPPurchaseOrderReads",
 	"accepter": ["All"],
-	"purchase_order": "4500000028",
+	"purchase_order": "4500000001",
 	"deleted": false
 ```
 
@@ -126,17 +126,52 @@ func (c *SAPAPICaller) AsyncGetPurchaseOrder(purchaseOrder, purchaseOrderItem, p
 	wg.Wait()
 }
 ```
+
 ## Output  
-本マイクロサービスでは、[golang-logging-library](https://github.com/latonaio/golang-logging-library) により、以下のようなデータがJSON形式で出力されます。  
+本マイクロサービスでは、[golang-logging-library-for-sap](https://github.com/latonaio/golang-logging-library-for-sap) により、以下のようなデータがJSON形式で出力されます。  
 以下の sample.json の例は、SAP 購買発注 の ヘッダデータ が取得された結果の JSON の例です。  
 以下の項目のうち、"PurchaseOrder" ～ "to_PurchaseOrderItem" は、/SAP_API_Output_Formatter/type.go 内 の Type Header {} による出力結果です。"cursor" ～ "time"は、golang-logging-library による 定型フォーマットの出力結果です。  
 
 ```
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-purchase-order-reads/SAP_API_Caller/caller.go#L50",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-purchase-order-reads/SAP_API_Caller/caller.go#L80",
 	"function": "sap-api-integrations-purchase-order-reads/SAP_API_Caller.(*SAPAPICaller).Header",
 	"level": "INFO",
-	"message": "[{XXXXXXXXXXXXXXXXXXXXXXXXXXXXX}]",
-	"time": "2021-12-11T15:33:00.054455+09:00"
+	"message": [
+		{
+			"PurchaseOrder": "4500000001",
+			"CompanyCode": "0001",
+			"PurchaseOrderType": "NB",
+			"PurchasingProcessingStatus": "02",
+			"CreationDate": "2022-09-16",
+			"LastChangeDateTime": "2022-09-16T09:45:12+09:00",
+			"Supplier": "100000",
+			"Language": "JA",
+			"PaymentTerms": "0001",
+			"PurchasingOrganization": "0001",
+			"PurchasingGroup": "001",
+			"PurchaseOrderDate": "2022-09-16",
+			"DocumentCurrency": "EUR",
+			"ExchangeRate": "1.00000",
+			"ValidityStartDate": "",
+			"ValidityEndDate": "",
+			"SupplierRespSalesPersonName": "",
+			"SupplierPhoneNumber": "",
+			"SupplyingPlant": "",
+			"IncotermsClassification": "",
+			"ManualSupplierAddressID": "",
+			"AddressName": "Test Suplier",
+			"AddressCityName": "test",
+			"AddressFaxNumber": "",
+			"AddressPostalCode": "99999",
+			"AddressStreetName": "Test",
+			"AddressPhoneNumber": "",
+			"AddressRegion": "02",
+			"AddressCountry": "DE",
+			"to_PurchaseOrderItem": "http://100.21.57.120:8080/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV/A_PurchaseOrder('4500000001')/to_PurchaseOrderItem"
+		}
+	],
+	"time": "2022-09-16T11:17:26+09:00"
 }
+
 ```

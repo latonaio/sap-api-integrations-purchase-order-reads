@@ -1,0 +1,21 @@
+{
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-purchase-order-reads/SAP_API_Caller/caller.go#L94",
+	"function": "sap-api-integrations-purchase-order-reads/SAP_API_Caller.(*SAPAPICaller).Header",
+	"level": "INFO",
+	"message": [
+		{
+			"PurchasingDocument": "4500000001",
+			"PurchasingDocumentItem": "10",
+			"ScheduleLine": "1",
+			"DelivDateCategory": "1",
+			"ScheduleLineDeliveryDate": "2022-09-16",
+			"PurchaseOrderQuantityUnit": "KG",
+			"ScheduleLineOrderQuantity": "1.000",
+			"ScheduleLineDeliveryTime": "00:00:00",
+			"PurchaseRequisition": "",
+			"PurchaseRequisitionItem": "0",
+			"ScheduleLineCommittedQuantity": "0.000"
+		}
+	],
+	"time": "2022-09-16T11:17:27+09:00"
+}

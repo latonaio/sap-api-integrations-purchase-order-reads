@@ -4,7 +4,7 @@
 	"redis_key": "abcdefg",
 	"filepath": "/var/lib/aion/Data/rededge_sdc/abcdef.json",
 	"PurchaseOrder": {
-		"PurchaseOrder": "4500000028",
+		"PurchaseOrder": "4500000001",
 		"CompanyCode": "",
 		"PurchaseOrderType": "",
 		"PurchasingProcessingStatus": "",
@@ -101,7 +101,7 @@
 				"IsDeleted": null
 			},
 			"ItemScheduleLine": {
-			    "PurchasingDocument": "4500000028",
+			    "PurchasingDocument": "4500000001",
 				"PurchasingDocumentItem": "10",
 				"ScheduleLine": "",
 				"DelivDateCategory": "",
@@ -150,6 +150,6 @@
 	},
 	"api_schema": "SAPPurchaseOrderReads",
 	"accepter": ["ItemScheduleLine"],
-	"purchase_order": "4500000028",
+	"purchase_order": "4500000001",
 	"deleted": false
 }
