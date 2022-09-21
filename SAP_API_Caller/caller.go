@@ -75,37 +75,38 @@ func (c *SAPAPICaller) Header(purchaseOrder string) {
 	headerData, err := c.callPurchaseOrderSrvAPIRequirementHeader("A_PurchaseOrder", purchaseOrder)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(headerData)
 	}
-	c.log.Info(headerData)
 
 	itemData, err := c.callToItem(headerData[0].ToItem)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemData)
 	}
-	c.log.Info(itemData)
 
 	itemScheduleLineData, err := c.callToItemScheduleLine(itemData[0].ToItemScheduleLine)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemScheduleLineData)
 	}
-	c.log.Info(itemScheduleLineData)
 
 	itemPricingElementData, err := c.callToItemPricingElement(itemData[0].ToItemPricingElement)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemPricingElementData)
 	}
-	c.log.Info(itemPricingElementData)
 
 	itemAccountData, err := c.callToItemAccount(itemData[0].ToItemAccount)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemAccountData)
 	}
-	c.log.Info(itemAccountData)
+	return
 }
 
 func (c *SAPAPICaller) callPurchaseOrderSrvAPIRequirementHeader(api, purchaseOrder string) ([]sap_api_output_formatter.Header, error) {
@@ -190,30 +191,31 @@ func (c *SAPAPICaller) Item(purchaseOrder, purchaseOrderItem string) {
 	itemData, err := c.callPurchaseOrderSrvAPIRequirementItem("A_PurchaseOrderItem", purchaseOrder, purchaseOrderItem)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemData)
 	}
-	c.log.Info(itemData)
 
 	itemScheduleLineData, err := c.callToItemScheduleLine(itemData[0].ToItemScheduleLine)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemScheduleLineData)
 	}
-	c.log.Info(itemScheduleLineData)
 
 	itemPricingElementData, err := c.callToItemPricingElement(itemData[0].ToItemPricingElement)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemPricingElementData)
 	}
-	c.log.Info(itemPricingElementData)
 
 	itemAccountData, err := c.callToItemAccount(itemData[0].ToItemAccount)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemAccountData)
 	}
-	c.log.Info(itemAccountData)
+	return
 }
 
 func (c *SAPAPICaller) callPurchaseOrderSrvAPIRequirementItem(api, purchaseOrder, purchaseOrderItem string) ([]sap_api_output_formatter.Item, error) {
